@@ -12,5 +12,6 @@ describe('red, green, refactor lab', () => {
     it('should return a new array with an extra item added to the end', () => {
         const numbers = [1, 2, 3];
         expect(copyAndPush(numbers, 4)).toEqual([1, 2, 3, 4]);
+        expect(numbers).toEqual([1, 2, 3]);
     });
 });

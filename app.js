@@ -3,6 +3,5 @@ export function getName({ name }) {
 }
 
 export function copyAndPush(arr, newElement) {
-    arr.push(newElement);
-    return arr;
+    return [...arr, newElement];
 }
