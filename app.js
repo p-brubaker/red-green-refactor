@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 export function getName({ name }) {
     return name;
 }
@@ -13,4 +15,11 @@ export function capitalizeAndFilter(arr) {
     return capitalizedStrings.filter((str) => {
         return str[0] !== 'F';
     });
+}
+
+export async function fetchQuotes() {
+    const URL = 'https://futuramaapi.herokuapp.com/api/quotes';
+    const response = await fetch(URL);
+    const result = await response.json();
+    return result[0];
 }

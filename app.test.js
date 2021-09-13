@@ -1,4 +1,9 @@
-import { getName, copyAndPush, capitalizeAndFilter } from './app.js';
+import {
+    getName,
+    fetchQuotes,
+    copyAndPush,
+    capitalizeAndFilter,
+} from './app.js';
 
 describe('red, green, refactor lab', () => {
     it('should return the name property of an object', () => {
@@ -15,7 +20,7 @@ describe('red, green, refactor lab', () => {
         expect(numbers).toEqual([1, 2, 3]);
     });
 
-    it('capitalize strings and filters out strings that start with f/F', () => {
+    it('should capitalize strings and filter out strings that start with f/F', () => {
         const strings = ['Fe', 'fi', 'fo', 'fum', 'this', 'is', 'a', 'test'];
         expect(capitalizeAndFilter(strings)).toEqual([
             'This',
@@ -23,5 +28,14 @@ describe('red, green, refactor lab', () => {
             'A',
             'Test',
         ]);
+    });
+
+    it('should return a single random quote from the futurama api', async () => {
+        const res = await fetchQuotes();
+        expect(res).toEqual({
+            character: expect.any(String),
+            quote: expect.any(String),
+            image: expect.any(String),
+        });
     });
 });
