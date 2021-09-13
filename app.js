@@ -1,3 +1,3 @@
-export function getName(obj) {
-    return obj.name;
+export function getName({ name }) {
+    return name;
 }
