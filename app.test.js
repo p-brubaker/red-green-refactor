@@ -1,4 +1,4 @@
-import { getName, copyAndPush } from './app.js';
+import { getName, copyAndPush, capitalizeAndFilter } from './app.js';
 
 describe('red, green, refactor lab', () => {
     it('should return the name property of an object', () => {
@@ -13,5 +13,15 @@ describe('red, green, refactor lab', () => {
         const numbers = [1, 2, 3];
         expect(copyAndPush(numbers, 4)).toEqual([1, 2, 3, 4]);
         expect(numbers).toEqual([1, 2, 3]);
+    });
+
+    it('capitalize strings and filters out strings that start with f/F', () => {
+        const strings = ['Fe', 'fi', 'fo', 'fum', 'this', 'is', 'a', 'test'];
+        expect(capitalizeAndFilter(strings)).toEqual([
+            'This',
+            'Is',
+            'A',
+            'Test',
+        ]);
     });
 });
